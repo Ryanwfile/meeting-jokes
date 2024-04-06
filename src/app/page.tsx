@@ -1,13 +1,45 @@
+"use client";
 import Image from "next/image";
+import Joke from "./components/Joke/page";
+import Jokes from "./components/Jokes/page";
+import Homepage from "./components/Homepage/page";
 
+
+const DUMMY_JOKE = {
+  jokeId: '1',
+  title: 'title test TITLE I says title',
+  content: 'content test',
+  author: 'test author',
+  isSafeForWork: false
+}
 export default function Home() {
+  const style = { "--i": 4 } as React.CSSProperties;
+  const style2 = { "--i": 3 } as React.CSSProperties;
+  const style3 = { "--i": 2 } as React.CSSProperties;
+  const style4 = { "--i": 1 } as React.CSSProperties;
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
+        <ul className="leftNav">       
+          <li style={style2}><a>Home</a></li>
+          <li style={style3} ><a>See more Jokes</a></li>
+          <li style={style4}><a>Create a Joke</a></li>
+        </ul>
       <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
         <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
           Get started by editing&nbsp;
           <code className="font-mono font-bold">src/app/page.tsx</code>
         </p>
+        <Joke
+          jokeId={DUMMY_JOKE.jokeId}
+          title={DUMMY_JOKE.title}
+          content={DUMMY_JOKE.content}
+          author={DUMMY_JOKE.author}
+          isSafeForWork={false} />
+        <Jokes />
+        <Homepage />
+
+      
+
         <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:h-auto lg:w-auto lg:bg-none">
           <a
             className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
