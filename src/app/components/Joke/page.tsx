@@ -1,6 +1,6 @@
 import { Joke } from "@/types/types"
 
-export default function Joke(joke: Joke) {
+export default function JokeComponent(joke: Joke) {
   return <div>
     <h1>{joke.title}</h1>
     <h2>{joke.author}</h2>
