@@ -1,6 +1,7 @@
 import { Joke } from "@/types/types";
 import { url } from "inspector";
 import { useEffect, useState } from "react";
+import JokeComponent from "../Joke/page";
 
 
 const URL = 'http://localhost:8080/api/v1/jokes';
@@ -41,9 +42,9 @@ export default function Jokes() {
     }, [])
 
     return <>
-      {jokes && jokes.length > 0 && jokes.map((joke: Joke) => <div key={joke.jokeId}> <h3>{joke.title} </h3>
-        <h4>{joke.author}</h4>
-        <p>{joke.content}</p>
+      {jokes && jokes.length > 0 && jokes.map((joke: Joke) => 
+      <div key={joke.jokeId}> 
+        <JokeComponent jokeId={joke.jokeId} author={joke.author} title={joke.title} content={joke.content} isSafeForWork={joke.isSafeForWork}/>
       </div>)}
     </>
     
