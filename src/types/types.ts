@@ -3,5 +3,6 @@ export interface Joke {
   title: string,
   content: string,
   author: string,
-  isSafeForWork: boolean
+  isSafeForWork: boolean,
+  isActive?: boolean
 }

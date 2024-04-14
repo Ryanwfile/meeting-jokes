@@ -9,6 +9,7 @@ const URL = 'http://localhost:8080/api/v1/jokes';
 export default function Jokes() {
   const [jokes, setJokes] = useState([]);
   const [isLoading, setLoading] = useState(false);
+  
 
   useEffect(
     function () {
@@ -39,14 +40,29 @@ export default function Jokes() {
     // return function () {
     //   controller.abort();
     // }
-    }, [])
+    }, []);
 
-    return <>
+    useEffect(function() {
+      setInterval(function() {
+        
+      }, 5000)
+    })
+
+    if(jokes && jokes.length > 0){
+      return <>
       {jokes && jokes.length > 0 && jokes.map((joke: Joke) => 
       <div key={joke.jokeId}> 
         <JokeComponent jokeId={joke.jokeId} author={joke.author} title={joke.title} content={joke.content} isSafeForWork={joke.isSafeForWork}/>
       </div>)}
     </>
+    }
+    else {
+      return <>
+        Error occurred no data, what did you do?
+      </>
+    }
+
+   
     
 
 
